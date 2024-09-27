@@ -9,5 +9,5 @@ public class TipoCambioFechaInicial {
     private String fecha;
     private double compra;
     private double venta;
-    private String moneda;
+    private int moneda;
 }

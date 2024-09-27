@@ -55,11 +55,6 @@ public class TipoCambioController {
             // se creo la instancia del TipoCambio
             TipoCambio tipoCambioDTO = new TipoCambio(fecha, referencia);
 
-            System.out.println("soy sistem");
-
-            logger.info("Esto es un mensaje informativo");
-            logger.debug("Esto es un mensaje de depuración");
-            logger.error("Esto es un mensaje de error");
 
             // Devolver la respuesta con el TipoCambio
             return ResponseEntity.ok(tipoCambioDTO);
@@ -109,7 +104,7 @@ public class TipoCambioController {
                 String fecha = varDolar.getString("fecha");
                 double compra = varDolar.getDouble("compra");
                 double venta = varDolar.getDouble("venta");
-                String moneda = varDolar.getString("moneda");
+                int moneda = varDolar.getInt("moneda");
 
                 // se creo la instancia del TipoCambio
                 TipoCambioFechaInicial tipoCambioDTO = new TipoCambioFechaInicial(fecha, compra, venta, moneda);
@@ -117,6 +112,8 @@ public class TipoCambioController {
                 // Agregar el TipoCambio a la lista
                 tipoCambioList.add(tipoCambioDTO);
             }
+
+            logger.info("Se ha consumido el servicio de TipoCambioFechaInicial");
             // se envia respuesta con la lista de TipoCambio
             return ResponseEntity.ok(tipoCambioList);
         } catch (Exception e) {
